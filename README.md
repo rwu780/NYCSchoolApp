@@ -1,5 +1,8 @@
 # NYCSchoolApp
 
+<img src="screen_shots/XRecorder_Edited_07082022_175251.gif" alt="drawing" width="300"/>
+
+
 <p float="left">
 <img src="screen_shots/Screenshot_20220807_173341.png" alt="drawing" width="300"/>
 <img src="screen_shots/Screenshot_20220807_173337.png" alt="drawing" width="300"/>
