@@ -1,5 +1,12 @@
 # NYCSchoolApp
 
+<p float="left">
+<img src="screen_shots/Screenshot_20220807_173341.png" alt="drawing" width="300"/>
+<img src="screen_shots/Screenshot_20220807_173337.png" alt="drawing" width="300"/>
+<img src="screen_shots/Screenshot_20220807_173320.png" alt="drawing" width="300"/> |
+</p>
+
+
 ## Technology
 Android, Jetpack Compose, Retrofit, Moshi, Room
 
