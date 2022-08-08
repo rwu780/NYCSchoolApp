@@ -11,7 +11,7 @@
 
 
 ## Technology
-Android, Jetpack Compose, Retrofit, Moshi, Room
+Android, Jetpack Compose, Retrofit, Moshi, Room, Hilt
 
 ## API
 
