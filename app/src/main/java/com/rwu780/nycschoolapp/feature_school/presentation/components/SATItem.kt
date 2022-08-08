@@ -1,6 +1,7 @@
 package com.rwu780.nycschoolapp.feature_school.presentation.components
 
 import androidx.compose.animation.*
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -18,12 +19,16 @@ import com.rwu780.nycschoolapp.ui.theme.NYCSchoolAppTheme
 @Composable
 fun SATItem(
     sat: SAT,
+    onNavigate: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .padding(8.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable {
+                onNavigate(sat.dbn)
+            },
         shape = RoundedCornerShape(20.dp)
     ) {
         Column(
@@ -46,7 +51,7 @@ fun SATItem(
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
                         imageVector =
-                            if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                        if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
                         contentDescription = ""
                     )
                 }
@@ -112,7 +117,8 @@ fun PreviewSATItem() {
                 avg_reading_score = 373,
                 avg_math_score = 370,
                 avg_writing_score = 384
-            )
+            ),
+            onNavigate = {}
         )
     }
 

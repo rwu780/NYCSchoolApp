@@ -1,6 +1,7 @@
 package com.rwu780.nycschoolapp.feature_school.data
 
 import com.rwu780.nycschoolapp.feature_school.data.local.NYSchoolDao
+import com.rwu780.nycschoolapp.feature_school.data.local.model.SchoolEntity
 import com.rwu780.nycschoolapp.feature_school.data.remote.NYSchoolApi
 import com.rwu780.nycschoolapp.feature_school.domain.NYSchoolRepository
 import com.rwu780.nycschoolapp.feature_school.domain.model.SAT
@@ -19,12 +20,20 @@ class NYSchoolRepositoryImpl @Inject constructor(
 
     override suspend fun insertAll() = withContext(dispatcher) {
 
+        val schools = api.getAllSchool()
         val lists = api.getAllSAT()
 
         if (lists.isNotEmpty()){
             dao.deleteAll()
             dao.insertSATs(lists.map {
                 it.toSATEntity()
+            })
+        }
+
+        if (schools.isNotEmpty()){
+            dao.deleteAllSchool()
+            dao.insertSchools(schools.map {
+                it.toSchoolEntity()
             })
         }
     }
@@ -43,5 +52,9 @@ class NYSchoolRepositoryImpl @Inject constructor(
                 it.toSAT()
             }
         }
+    }
+
+    override suspend fun getSchoolWithDbn(dbn: String): SchoolEntity? = withContext(dispatcher){
+        return@withContext dao.getSchoolWithDbn(dbn)
     }
 }

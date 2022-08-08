@@ -17,6 +17,9 @@ interface NYSchoolDao {
     @Query("DELETE FROM sat")
     suspend fun deleteAll()
 
+    @Query("DELETE FROM school")
+    suspend fun deleteAllSchool()
+
     @Query("SELECT * FROM sat")
     fun getAllSATs(): Flow<List<SATEntity>>
 
@@ -24,6 +27,6 @@ interface NYSchoolDao {
     fun filterByKeyword(keyword: String): Flow<List<SATEntity>>
 
     @Query("SELECT * FROM school WHERE dbn=:dbn")
-    suspend fun getSchoolWithDbn(dbn: String): SchoolEntity
+    suspend fun getSchoolWithDbn(dbn: String): SchoolEntity?
 
 }
